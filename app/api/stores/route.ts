@@ -8,7 +8,7 @@ export async function POST(
   try {
     const { userId } = auth()
     const body = await req.json();
-    console.log("Body", body)
+    
     const { username:name } = body;
 
     if(!userId) {

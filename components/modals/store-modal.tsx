@@ -44,7 +44,6 @@ export const StoreModal = () => {
   ) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
     try {
       setLoading(true)
 
@@ -52,8 +51,8 @@ export const StoreModal = () => {
         '/api/stores',
         values
       )
-      console.log(response.data)
-      toast.success('Store Created!')
+
+      window.location.assign(`/${response.data.id}`)
     } catch (error) {
       console.log(error)
       toast.error('Something went wrong!')
