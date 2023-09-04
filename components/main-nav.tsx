@@ -37,7 +37,7 @@ function MainNav({
               : 'text-muted-foreground'
           )}
         >
-          route.label
+          Settings
         </Link>
       ))}
     </nav>
