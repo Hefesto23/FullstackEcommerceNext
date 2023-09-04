@@ -14,6 +14,11 @@ function MainNav({
   const params = useParams()
   const routes = [
     {
+      href: `/${params.storeId}`,
+      label: 'Overview',
+      active: pathname === `/${params.storeId}`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: 'Settings',
       active: pathname === `/${params.storeId}/settings`,
@@ -31,13 +36,13 @@ function MainNav({
           key={route.href}
           href={route.href}
           className={cn(
-            'text-sm font-medium transition-colors hover:text-primary',
+            'text-sm font-medium transition-colors hover:text-primary px-4',
             route.active
               ? 'text-black dark:text-white'
               : 'text-muted-foreground'
           )}
         >
-          Settings
+          {route.label}
         </Link>
       ))}
     </nav>

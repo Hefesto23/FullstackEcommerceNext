@@ -24,6 +24,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { useParams, useRouter } from 'next/navigation'
 import { AlertModal } from '@/components/modals/alert-modal'
+import { ApiAlert } from '@/components/ui/api-alert'
+import { useOrigin } from '@/hooks/use-origin'
 
 interface SettingsFormProps {
   initialData: store | null
@@ -42,6 +44,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const origin = useOrigin()
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -143,6 +146,12 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           </Button>
         </form>
       </Form>
+      <Separator />
+      <ApiAlert
+        title="NEXT_PUBLIC_API_URL"
+        description={`${origin}/api/${params.storeId}`}
+        variant="public"
+      />
     </>
   )
 }
