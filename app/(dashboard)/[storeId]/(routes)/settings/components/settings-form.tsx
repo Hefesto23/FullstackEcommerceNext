@@ -2,7 +2,7 @@
 
 import * as z from 'zod'
 import axios from 'axios'
-import { store } from '@prisma/client'
+import { Store } from '@prisma/client'
 import { Trash } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -28,7 +28,7 @@ import { ApiAlert } from '@/components/ui/api-alert'
 import { useOrigin } from '@/hooks/use-origin'
 
 interface SettingsFormProps {
-  initialData: store | null
+  initialData: Store | null
 }
 
 const formSchema = z.object({

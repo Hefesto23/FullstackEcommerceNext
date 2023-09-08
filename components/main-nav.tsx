@@ -19,6 +19,11 @@ function MainNav({
       active: pathname === `/${params.storeId}`,
     },
     {
+      href: `/${params.storeId}/billboards`,
+      label: 'Billboards',
+      active: pathname === `/${params.storeId}/billboards`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: 'Settings',
       active: pathname === `/${params.storeId}/settings`,
@@ -36,7 +41,7 @@ function MainNav({
           key={route.href}
           href={route.href}
           className={cn(
-            'text-sm font-medium transition-colors hover:text-primary px-4',
+            'text-sm font-medium transition-colors hover:text-primary',
             route.active
               ? 'text-black dark:text-white'
               : 'text-muted-foreground'
